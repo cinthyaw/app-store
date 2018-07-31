@@ -37,15 +37,16 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     if(this.loginForm.valid){
-      console.log("entro1", this.loginForm);
+      
       this.loginService.login('/users').subscribe((r: Array<any>)=>{
-        console.log(r);
+        
         let foundUser = null;
-        foundUser = r.map(user => {
+        foundUser = r.find(user => {
+          
           if (user.username == this.email.value && user.password == this.password.value) {
             return user;
           }
-        })[0];
+        });
         console.log(foundUser);
         if (foundUser) {
           localStorage.setItem('user', JSON.stringify(foundUser));
