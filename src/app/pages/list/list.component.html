@@ -1,0 +1,14 @@
+<div>
+  <h3>Products</h3>
+  <img src="../../../assets/cart.png" class="cart-icon" (click)="viewCart()" />
+  <a class="logout" (click)="logout()">Log Out</a>
+  <ul class="list-group">
+      <li *ngFor="let product of productList" class="list-group-item d-flex justify-content-between align-items-center">
+        {{ product.name}}
+        <span class="badge badge-primary badge-pill">${{product.price}}</span>
+        <button type="button" class="btn btn-info" (click)="addProduct(product)" >Add</button>
+      </li>
+    </ul>
+</div>
+
+<div class="notification" [ngClass]="{ 'visible': adding }"><strong>{{itemAdded}}</strong> added.  Total in the cart: <strong>{{qtyAdded}}</strong></div>

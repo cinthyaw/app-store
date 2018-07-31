@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-6 offset-3">
+    <h3 class="offset-5">Login</h3>
+  <form [formGroup]= 'loginForm' (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <span *ngIf="email.errors && email.errors.required">Email is required</span>
+      <span *ngIf="email.errors && email.errors.invalid">Email is invalid</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <span *ngIf="password.errors && password.errors.required">Password is required</span>
+    </div>
+    <div class="form-group form-check">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>

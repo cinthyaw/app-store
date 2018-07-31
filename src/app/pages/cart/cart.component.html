@@ -1,0 +1,18 @@
+<div class="container">
+    <a class="logout" (click)="logout()">Log Out</a>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <h3>My Cart</h3>
+      
+      <a routerLink="/list">Go Back</a>
+        <ul class="list-group">
+            <li *ngFor="let product of currentItems" class="list-group-item d-flex justify-content-between align-items-center">
+              {{ product.name}}(${{product.price}})
+              <span class="badge badge-primary badge-pill">Qty: {{product.qty}}</span>
+              <button type="button" class="btn btn-info" (click)="removeProduct(product)" >Remove</button>
+            </li>
+          </ul>
+          <div *ngIf="!currentItems || currentItems.length == 0">Your cart is empty. Click <a routerLink="/list">here</a> to add some products.</div>
+    </div>
+  </div>
+</div>
